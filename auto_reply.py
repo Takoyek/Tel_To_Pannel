@@ -31,6 +31,23 @@ class UserState(Base):
 
 Base.metadata.create_all(engine)
 
+# ---------- افزودن بخش مربوط به دیتابیس inputs.db ----------
+DURATION = "30"  # مقدار ثابت
+
+# اتصال به دیتابیس inputs.db
+inputs_conn = sqlite3.connect('inputs.db')
+inputs_cursor = inputs_conn.cursor()
+inputs_cursor.execute('''
+    CREATE TABLE IF NOT EXISTS inputs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        client_name TEXT,
+        total_flow TEXT,
+        duration TEXT
+    )
+''')
+inputs_conn.commit()
+
+
 # فایل‌ها
 if not os.path.exists('downloads'):
     os.makedirs('downloads')
@@ -285,6 +302,16 @@ async def handler(event):
             await send_messages(event, [formatted_bank_message])
             await send_messages(event, MESSAGES["GO_BACK"])
             user_state[user_id] = "TMD_MENU"
+
+            # ذخیره client_name و total_flow در دیتابیس + اجرای اسکریپت
+            client_name_input = text.strip()
+            total_flow_input = sub_type  # "50" یا "30"
+            inputs_cursor.execute(
+                "INSERT INTO inputs (client_name, total_flow, duration) VALUES (?, ?, ?)",
+                (client_name_input, total_flow_input, DURATION)
+            )
+            inputs_conn.commit()
+            subprocess.call("/root/myenv/bin/python3 extend_subscription.py", shell=True)
 
     elif current_state == "TMD_MENU":
         if text == "9":
