@@ -8,6 +8,9 @@ api_hash = '70a40f9db30071a7be02eb35fef561b6'
 phone_number = '+989155841124'
 client = TelegramClient('session_name', api_id, api_hash)
 
+# تعریف مقدار ثابت DURATION که به راحتی قابل تغییر است
+DURATION = "30"
+
 # اتصال به پایگاه داده SQLite و ایجاد جدول در صورت عدم وجود
 conn = sqlite3.connect("inputs.db")
 cursor = conn.cursor()
@@ -33,21 +36,20 @@ async def handler(event):
 
     try:
         text = event.raw_text.strip()
-        # انتظار داریم پیام به فرمت: client_name/ total_flow/ duration باشد.
+        # انتظار داریم پیام به فرمت: client_name/total_flow باشد.
+        # به عنوان مثال: "zxc/30"
         parts = text.split('/')
-        if len(parts) == 3:
+        if len(parts) == 2:
             client_name_input = parts[0].strip()
             total_flow_input = parts[1].strip()
-            duration_input = parts[2].strip()
             cursor.execute(
                 "INSERT INTO inputs (client_name, total_flow, duration) VALUES (?, ?, ?)",
-                (client_name_input, total_flow_input, duration_input)
+                (client_name_input, total_flow_input, DURATION)
             )
             conn.commit()
             subprocess.call("/root/myenv/bin/python3 extend_subscription.py", shell=True)
             await client.disconnect()
     except Exception:
-        # در صورت بروز خطا، هیچ پیامی ارسال نمی‌شود.
         pass
 
 client.start(phone=phone_number)

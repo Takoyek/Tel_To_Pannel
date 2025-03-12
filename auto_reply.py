@@ -89,8 +89,8 @@ MESSAGES = {
 
     "TMD_RESID": "⭐️ سفارش شما با مشخصات زیر:\n"
                  " **************************** \n"
-                 "نام کاربری: {TMD_username} \n"
-                 "حجم: {TMD_hajm} \n"
+                 "نام کاربری: {client_name} \n"
+                 "حجم: {total_flow} \n"
                  " {TMD_mablagh} \n"
                  "سی روزه\n"
                  " **************************** \n\n"
@@ -267,19 +267,19 @@ async def handler(event):
 # -------------------------------------------------------------------
     if current_state == "awaiting_TMD_SUB":
         if text in ("50", "30"):
-            user_state[user_id] = "awaiting_TMD_SUB_TMD_username"
+            user_state[user_id] = "awaiting_TMD_SUB_client_name"
             user_state[f"{user_id}_SUB_type"] = text
             await send_messages(event, MESSAGES["TMD_NAME"])
         elif text in ("9", "0"):
             user_state[user_id] = "MAIN_MENU"
             await send_messages(event, MESSAGES["MAIN_MENU"])
 
-    elif current_state == "awaiting_TMD_SUB_TMD_username":
+    elif current_state == "awaiting_TMD_SUB_client_name":
         sub_type = user_state.pop(f"{user_id}_SUB_type", None)    
         if sub_type:
             volume = MESSAGES["50G"] if sub_type == "50" else MESSAGES["30G"]
             toman = MESSAGES["50T"] if sub_type == "50" else MESSAGES["30T"]
-            message = MESSAGES["TMD_RESID"].format(TMD_username=text, TMD_hajm=volume, TMD_mablagh=toman)
+            message = MESSAGES["TMD_RESID"].format(client_name=text, total_flow=volume, TMD_mablagh=toman)
             await send_messages(event, message)
             formatted_bank_message = MESSAGES["BANK_CARD"][0].format(mablagh=toman)
             await send_messages(event, [formatted_bank_message])
