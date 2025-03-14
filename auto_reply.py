@@ -446,8 +446,7 @@ async def file_handler(event):
 
 async def cleanup_expired_files():
     EXPIRE_SECONDS = 60 * 24 * 3600  # ۶۰ روز به ثانیه
-    EXPIRE_SECONDS = 15  # هر 15 ثانیه
-
+#    EXPIRE_SECONDS = 15  # هر 15 ثانیه
 
     # اجرای اولیه بدون تاخیر: فایل‌های قدیمی‌تر از ۶۰ روز پاک می‌شوند
     for user_id in Delete_Days_files:
