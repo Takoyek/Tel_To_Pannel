@@ -3,6 +3,8 @@ import logging
 import os
 import sqlite3
 import subprocess
+import time
+import asyncio
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -48,13 +50,15 @@ inputs_cursor.execute('''
 inputs_conn.commit()
 
 # فایل‌ها
-if not os.path.exists('/root/DATA/Uploads'):
-    os.makedirs('/root/DATA/Uploads')
+base_folder = '/root/DATA/Uploads'
+if not os.path.exists(base_folder):
+    os.makedirs(base_folder)
 
 
 allowed_users = [6312958530, 5913828709, 7517469464, 7505307212]
 block_format = ['.exe']
 block_reply_files = [7517469464, 7505307212]
+Delete_Days_files = [7517469464, 7505307212]
 block_forward = [44444, 55555]
 block_reply = [66666, 88888]
 block_TMD = [101512739, 1622957174, 133450983, 44444]
@@ -375,15 +379,16 @@ async def handler(event):
 
     logger.info(f"Sent messages to {user_id}")
 
+
 # هندلر فایل‌ها
 @client.on(events.NewMessage(func=lambda e: e.media or e.raw_text in ("my:files",) or e.raw_text.startswith("sendme:")))
 async def file_handler(event):
     is_outgoing = event.out
     user_id = event.chat_id if is_outgoing else event.sender_id
-    
+
     if user_id in allowed_users:
         user_folder_name = await get_username(user_id)
-        user_folder = os.path.join('/root/DATA/Uploads', user_folder_name)
+        user_folder = os.path.join(base_folder, user_folder_name)
         
         if not os.path.exists(user_folder):
             os.makedirs(user_folder)
@@ -439,7 +444,51 @@ async def file_handler(event):
             else:
                 await event.reply(MESSAGES['file_not_found'].format(file_name=file_name))
 
-# راه‌اندازی سرویس
+async def cleanup_expired_files():
+    EXPIRE_SECONDS = 60 * 24 * 3600  # ۶۰ روز به ثانیه
+    EXPIRE_SECONDS = 15  # هر 15 ثانیه
+
+
+    # اجرای اولیه بدون تاخیر: فایل‌های قدیمی‌تر از ۶۰ روز پاک می‌شوند
+    for user_id in Delete_Days_files:
+        try:
+            user_folder_name = await get_username(user_id)
+            user_folder = os.path.join(base_folder, user_folder_name)
+            if os.path.exists(user_folder):
+                for file in os.listdir(user_folder):
+                    file_path = os.path.join(user_folder, file)
+                    if os.path.isfile(file_path):
+                        file_age = time.time() - os.path.getmtime(file_path)
+                        if file_age > EXPIRE_SECONDS:
+                            os.remove(file_path)
+                            logger.info(
+                                f"پاکسازی اولیه: فایل {file_path} برای کاربر {user_id} حذف شد (بیش از ۶۰ روز قدیمی)."
+                            )
+        except Exception as e:
+            logger.error(f"خطا در پاکسازی اولیه فایل‌های کاربر {user_id}: {e}")
+
+    # حلقه بی‌نهایت برای پاکسازی دوره‌ای (هر ساعت)
+    while True:
+        for user_id in Delete_Days_files:
+            try:
+                user_folder_name = await get_username(user_id)
+                user_folder = os.path.join(base_folder, user_folder_name)
+                if os.path.exists(user_folder):
+                    for file in os.listdir(user_folder):
+                        file_path = os.path.join(user_folder, file)
+                        if os.path.isfile(file_path):
+                            file_age = time.time() - os.path.getmtime(file_path)
+                            if file_age > EXPIRE_SECONDS:
+                                os.remove(file_path)
+                                logger.info(
+                                    f"پاکسازی دوره‌ای: فایل {file_path} برای کاربر {user_id} حذف شد (بیش از ۶۰ روز قدیمی)."
+                                )
+            except Exception as e:
+                logger.error(f"خطا در پاکسازی فایل‌های کاربر {user_id}: {e}")
+        await asyncio.sleep(86400)  # بررسی هر یک روز یکبار
+#        await asyncio.sleep(15)  # بررسی هر 15 ثانیه یکبار
+
 client.start()
+client.loop.create_task(cleanup_expired_files())
 logger.info("Connected to Telegram." if client.is_connected() else "Connection failed.")
 client.run_until_disconnected()
