@@ -48,11 +48,12 @@ inputs_cursor.execute('''
 inputs_conn.commit()
 
 # فایل‌ها
-if not os.path.exists('downloads'):
-    os.makedirs('downloads')
+if not os.path.exists('/root/DATA/Uploads'):
+    os.makedirs('/root/DATA/Uploads')
+
 
 allowed_users = [6312958530, 5913828709, 7517469464, 7505307212]
-block_format = ['.json']
+block_format = ['.exe']
 block_reply_files = [7517469464, 7505307212]
 block_forward = [44444, 55555]
 block_reply = [66666, 88888]
@@ -382,7 +383,7 @@ async def file_handler(event):
     
     if user_id in allowed_users:
         user_folder_name = await get_username(user_id)
-        user_folder = os.path.join('downloads', user_folder_name)
+        user_folder = os.path.join('/root/DATA/Uploads', user_folder_name)
         
         if not os.path.exists(user_folder):
             os.makedirs(user_folder)
