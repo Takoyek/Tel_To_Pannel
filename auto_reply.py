@@ -47,7 +47,6 @@ inputs_cursor.execute('''
 ''')
 inputs_conn.commit()
 
-
 # فایل‌ها
 if not os.path.exists('downloads'):
     os.makedirs('downloads')
@@ -58,6 +57,7 @@ block_reply_files = [7517469464, 7505307212]
 block_forward = [44444, 55555]
 block_reply = [66666, 88888]
 block_TMD = [101512739, 1622957174, 133450983, 44444]
+allowed_main_menu = [6312958530, 333333]
 block_menu = [
     101512739, 1622957174, 133450983, 1499394623,
     736768510, 93983470, 725484841, 58107887, 349942915
@@ -163,12 +163,22 @@ async def get_username(user_id):
         logger.error(f'خطا در دریافت نام کاربری برای {user_id}: {e}')
         return str(user_id)
 
+async def send_main_menu(event, user_id):
+    # تنها در صورتی که user_id در لیست allowed_main_menu باشد، پیام MAIN_MENU ارسال می‌شود
+    if user_id in allowed_main_menu:
+        await send_messages(event, MESSAGES["MAIN_MENU"])
+
+
 # هندلر اصلی
 @client.on(events.NewMessage(incoming=True))
+
 async def handler(event):
-    # فقط پیام‌های خصوصی از آیدی 6312958530 پاسخ داده می‌شود
-    if not event.is_private or event.sender_id != 6312958530:
+    # اگر رویداد خصوصی نباشد یا شناسه فرستنده در لیست block_reply قرار داشته باشد
+    if not event.is_private or event.sender_id in block_reply:
+    # فقط به پیام‌های خصوصی از کاربرانی که در لیست allowed_users هستند پاسخ داده می‌شود
+#    if not event.is_private or event.sender_id not in allowed_users:
         return
+
 
     sender = await event.get_sender()
     if sender and sender.bot:
@@ -183,14 +193,14 @@ async def handler(event):
 
     logger.info(f"Received message from {user_id}: {raw_text}")
 
+
     # پردازش کلیدواژه‌ها
     if any(kw in text_lower for kw in FIRST_HI):
         with Session() as session:
             user = session.query(UserState).filter_by(user_id=user_id).first()
             if user:
                 await send_messages(event, MESSAGES["WELLCOM"].format(name=user.state))
-                if user_id not in block_menu:
-                    await send_messages(event, MESSAGES["MAIN_MENU"])
+                await send_main_menu(event, user_id)
                 user_state[user_id] = "MAIN_MENU"
             else:
                 await send_messages(event, MESSAGES["HELLO"])
@@ -252,7 +262,7 @@ async def handler(event):
                 session.commit()
             user_state[user_id] = "MAIN_MENU"
             await send_messages(event, MESSAGES["WELLCOM"].format(name=name))
-            await send_messages(event, MESSAGES["MAIN_MENU"])
+            await send_main_menu(event, user_id)
         elif text == "2":
             user_state[user_id] = "awaiting_name"
             await send_messages(event, MESSAGES["NEW_NAME"])
@@ -270,7 +280,6 @@ async def handler(event):
             user_state[f"{user_id}_order"] = MESSAGES["NEW"]  # ذخیره مقدار سفارش، مثلاً "خرید"
             order_message = [msg.format(order=MESSAGES["NEW"]) for msg in MESSAGES["ORDER"]]
             await send_messages(event, order_message)
-            await send_messages(event, MESSAGES["NEW_USER"])
             await send_messages(event, MESSAGES["GO_BACK"])
 
         elif text == "3":
@@ -289,8 +298,8 @@ async def handler(event):
             await send_messages(event, MESSAGES["TMD_NAME"])
         elif text in ("9", "0"):
             user_state[user_id] = "MAIN_MENU"
-            await send_messages(event, MESSAGES["MAIN_MENU"])
-
+            await send_main_menu(event, user_id)
+            
     elif current_state == "awaiting_TMD_SUB_client_name":
         sub_type = user_state.pop(f"{user_id}_SUB_type", None)    
         if sub_type:
@@ -321,7 +330,7 @@ async def handler(event):
 
         elif text == "0":
             user_state[user_id] = "MAIN_MENU"
-            await send_messages(event, MESSAGES["MAIN_MENU"])
+            await send_main_menu(event, user_id)
 # -------------------------------------------------------------------
 
     elif current_state == "awaiting_NEW_USER":
@@ -331,7 +340,7 @@ async def handler(event):
             await send_messages(event, MESSAGES["NEW_USER_NAME"])
         elif text in ("9", "0"):
             user_state[user_id] = "MAIN_MENU"
-            await send_messages(event, MESSAGES["MAIN_MENU"])
+            await send_main_menu(event, user_id)
 
     elif current_state == "awaiting_NEW_USER_NEW_username":
         sub_type = user_state.pop(f"{user_id}_SUB_type", None)
@@ -353,12 +362,12 @@ async def handler(event):
 
         elif text == "0":
             user_state[user_id] = "MAIN_MENU"
-            await send_messages(event, MESSAGES["MAIN_MENU"])
+            await send_main_menu(event, user_id)
 
     elif current_state == "awaiting_OLD_USER":
         if text in ("9", "0"):
             user_state[user_id] = "MAIN_MENU"
-            await send_messages(event, MESSAGES["MAIN_MENU"])
+            await send_main_menu(event, user_id)
         else:
             await send_messages(event, MESSAGES["OLD_RESID"].format(OLD_username=text))
             await send_messages(event, MESSAGES["GO_BACK"])
