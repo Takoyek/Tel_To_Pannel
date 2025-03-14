@@ -1,0 +1,2477 @@
+{
+  "log": {
+    "access": "none",
+    "dnsLog": false,
+    "loglevel": "warning"
+  },
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "type": "field"
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "snapp.ir",
+          "*.snapp.ir",
+          "*.bankmellat.ir",
+          "snappfood.ir",
+          "*.snappshop.ir",
+          "snapptrip.com",
+          "*.snapptrip.com",
+          "*.blubank.sb24.ir",
+          "*.blubank.com",
+          "digikala.com",
+          "*.digikala.com",
+          "torob.com",
+          "*.torob.com",
+          "divar.ir",
+          "*.divar.ir",
+          "sibapp.com",
+          "*.sibapp.com",
+          "rubika.ir",
+          "*.rubika.ir",
+          "irancell.ir",
+          "tapsi.ir",
+          "*.tapsi.ir",
+          "*.irancell.ir",
+          "my.irancell.ir",
+          "*.my.irancell.ir",
+          "*.asanpardakht.ir",
+          "*.banksepah.ir",
+          "*.tejaratbank.ir",
+          "*.bmi.ir",
+          "*.parsian-bank.ir",
+          "*.tejaratbank.ir",
+          "*.ansarbankbroker.ir",
+          "*.sb24.ir",
+          "*.bank-maskan.ir",
+          "my.mci.ir",
+          "*.mci.ir",
+          "mci.ir",
+          "excoino.com",
+          "*.excoino.com",
+          "*.nobitex.ir",
+          "nobitex.ir",
+          "helsinki2upload.shop",
+          "*.helsinki2upload.shop",
+          "music.apple.com",
+          "*.iranika.shop",
+          "*.taino.top",
+          "x1.taino.top",
+          "x2.taino.top",
+          "speedtest.net",
+          "dash.manageit.ir",
+          "nobitex.ir",
+          "accsell.ir",
+          "*.icloud.com",
+          "*.apps.apple.com",
+          "music.apple.com",
+          "*.apple.com",
+          "cafebazaar.ir",
+          "*.arvanstorage.ir",
+          "soft98.ir",
+          "dl2.soft98.ir",
+          "ext:geosite_IR.dat:ir",
+          "regexp:.*\\.ir$",
+          "regexp:.*\\.xn--mgba3a4f16a$"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "ip": [
+          "ext:geoip_IR.dat:ir"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "ip": [
+          "geoip:private"
+        ]
+      }
+    ]
+  },
+  "dns": null,
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 62789,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1"
+      },
+      "streamSettings": null,
+      "tag": "api",
+      "sniffing": null,
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 40177,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "سعیدبراتی",
+            "id": "113f9ac8-ccae-4a19-8cdc-e58bb9b68c2b"
+          },
+          {
+            "email": "02",
+            "id": "7d03d610-342f-490c-a041-eb08cad49cc0"
+          },
+          {
+            "email": "MSI",
+            "id": "8b21da0c-24a9-4203-864e-ec46af6ccabc"
+          },
+          {
+            "email": "Lenovo",
+            "id": "3a082828-151c-4d37-9799-6f4f98dc2be2"
+          },
+          {
+            "email": "سعید.براتی",
+            "id": "77d68b50-bb46-4a0e-b6e5-27fe38511bdb"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-40177",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
+        ]
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 28809,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": ".رضا-پیرایش",
+            "id": "c41c9916-b89d-44ce-c734-46839816b466"
+          },
+          {
+            "email": "\u0026سعید-حسین-پور",
+            "id": "76b55ff0-5d64-4b8d-99f6-fe91c8a7fe67"
+          },
+          {
+            "email": "\u0026-GH.Amini",
+            "id": "2182f9b2-7e2a-43d5-a28c-0718f91b47f2"
+          },
+          {
+            "email": "جعفریان",
+            "id": "a250866b-7626-4832-98d6-7697549bd532"
+          },
+          {
+            "email": ":راحله",
+            "id": "a3102479-4354-4201-a2bb-b0bc5c0b0037"
+          },
+          {
+            "email": ":رضوان",
+            "id": "05782a5b-a6c6-4998-bbaa-54cbffd136fb"
+          },
+          {
+            "email": "بذرکار-جدید",
+            "id": "070aa5f0-c28c-47ae-9b9c-665e684e15e4"
+          },
+          {
+            "email": ":کشاورز",
+            "id": "ba8c3064-8f4d-4e29-907e-216a58d52034"
+          },
+          {
+            "email": "مامان.مرجان",
+            "id": "28418410-c75e-4933-a2ad-9f8874e608e7"
+          },
+          {
+            "email": ":سعید-کریمی",
+            "id": "af25054c-d5bd-4840-a19e-6272a9b693d5"
+          },
+          {
+            "email": "نیما.صافی",
+            "id": "1b74cfa3-01f8-430b-b1f0-b7988fec3851"
+          },
+          {
+            "email": "مریم.علیزاده",
+            "id": "a91ff9b9-db9f-492f-8420-675e837f53ca"
+          },
+          {
+            "email": "خاله.مرجان.01",
+            "id": "644fe063-dc15-4f90-8ec2-aca835048126"
+          },
+          {
+            "email": "دکتر.داوری",
+            "id": "f5fcaebf-5f01-4882-b2c1-1892ef56e267"
+          },
+          {
+            "email": "\u0026-معین-فر",
+            "id": "5c7dadaa-0434-4b80-a666-79f6ae26dea7"
+          },
+          {
+            "email": "\u0026-فرزاد",
+            "id": "4b03712c-6041-4f4f-9976-44c8097eb50f"
+          },
+          {
+            "email": "\u0026-صدف",
+            "id": "599ec9aa-8333-4bcb-993d-0d7da0aa2954"
+          },
+          {
+            "email": "\u0026حبیبیان",
+            "id": "7ec58f51-e3db-4ef5-9c99-736d49c8a704"
+          },
+          {
+            "email": "New.مهدی-دژکام",
+            "id": "279fb50c-54a1-4bfc-95cf-953a73547943"
+          },
+          {
+            "email": "نسترن",
+            "id": "919c804e-765b-4e26-b055-fab33474cd55"
+          },
+          {
+            "email": "مرجان.راه.چمنی",
+            "id": "df24de46-e698-4bc3-8975-4452d0ab9630"
+          },
+          {
+            "email": ".سهرابی",
+            "id": "cfa320b1-8eda-4e82-958c-63b1067a898e"
+          },
+          {
+            "email": "خاله.مرجان.02",
+            "id": "2caddbdd-bb65-4ac3-9e46-3b0203a5061d"
+          },
+          {
+            "email": "سحر.سیدی",
+            "id": "5c6c46e4-9743-42ec-a297-437cf2615901"
+          },
+          {
+            "email": "عباس.عبدی",
+            "id": "a7b5ebd3-aaa6-4aa5-b70a-bd3894530f6d"
+          },
+          {
+            "email": ".الماس",
+            "id": "a8236a57-b113-46a0-a849-ff966ab69155"
+          },
+          {
+            "email": ".شیما-02",
+            "id": "bc26f345-07c0-4aa9-95f0-4ba6de39a3e4"
+          },
+          {
+            "email": ".پارسا-دژکام",
+            "id": "0d4846c3-4eef-41f0-b4de-5346fababd3f"
+          },
+          {
+            "email": ".امیر-AZ",
+            "id": "cbe35671-01dc-440e-ae8a-d0b54cbb6db6"
+          },
+          {
+            "email": ".Hamid.G",
+            "id": "af595d4d-e105-41a3-bb3a-a7c5b0e31d63"
+          },
+          {
+            "email": "مرجان",
+            "id": "db4a093d-fc24-44e0-bef5-c7a49a76f743"
+          },
+          {
+            "email": "صمدیان",
+            "id": "44eef789-fbc9-471d-862c-351404c811f8"
+          },
+          {
+            "email": "حاج.احمد",
+            "id": "3e8034d2-230b-4507-bcc4-aac706efd663"
+          },
+          {
+            "email": "دکتر-رضایی",
+            "id": "f690fd0b-202b-4a3a-9d06-edf92bc2abab"
+          },
+          {
+            "email": "روح.الله.صلاحی2",
+            "id": "c4ca5686-6eaf-43e4-9bf5-d34d66f2b3a2"
+          },
+          {
+            "email": "دکتر.کارگر-02",
+            "id": "f2b8afd2-5413-4818-88a7-ae6a7469f485"
+          },
+          {
+            "email": "Saeed7652.New",
+            "id": "b274e847-5bfe-47da-bfcf-b0151f80c477"
+          },
+          {
+            "email": "آفتاب.لطفی",
+            "id": "4397b085-3e07-4bab-8b81-84c8a0380e55"
+          },
+          {
+            "email": "مریم.صالحی",
+            "id": "edca4f24-22a9-4cd6-98eb-a6cfda1b0fb2"
+          },
+          {
+            "email": "احسان.R",
+            "id": "010847a3-e0c0-4de3-ae8e-66ed3a795118"
+          },
+          {
+            "email": "نسرین.حافظی",
+            "id": "7c8dff9e-560e-4169-93f1-cb97f6956dbc"
+          },
+          {
+            "email": "ثمین",
+            "id": "69378933-8482-4a5f-8f53-d0e1ae3b2f2b"
+          },
+          {
+            "email": "مهندس.ایمانی.New",
+            "id": "8c5783d1-65cf-4b58-8771-0c86cc1caedc"
+          },
+          {
+            "email": "الهام.کاظمی",
+            "id": "af3a0e33-2ee6-438a-9b45-1c691e68a404"
+          },
+          {
+            "email": "S.M.Y",
+            "id": "f046b5fb-5285-419a-896d-c7cb64e58098"
+          },
+          {
+            "email": "حاتمی",
+            "id": "8342cb96-2dfa-4805-bf4e-0c5dceaf2513"
+          },
+          {
+            "email": "AMD",
+            "id": "e3c40296-efd5-4ee2-8feb-e713448316b0"
+          },
+          {
+            "email": "..نیما",
+            "id": "89a9da95-5078-4386-aa3f-46fae809e7bf"
+          },
+          {
+            "email": "کیمیا.بهزادی",
+            "id": "21f4298f-58e3-491a-b872-c7e7902a1c25"
+          },
+          {
+            "email": "یکتا",
+            "id": "894fb3f2-ef06-4cef-8931-abd6aec78b08"
+          },
+          {
+            "email": "جواد.رمضانی",
+            "id": "8cda2634-c9d4-466e-b117-7a701070f6a4"
+          },
+          {
+            "email": "مرجان-محمد",
+            "id": "959c8a40-3612-4c2f-999f-a5eb244bf461"
+          },
+          {
+            "email": "کیانوش",
+            "id": "b9eee54f-222c-4112-88d1-3e48a3559683"
+          },
+          {
+            "email": "محمدعلی.تقوی",
+            "id": "8b70adbe-6b49-4593-ae10-0f9b8125f04e"
+          },
+          {
+            "email": "مهدی.رضاپور",
+            "id": "2c491778-0320-4042-bf49-008da0908b7d"
+          },
+          {
+            "email": "زهرا.محمدی",
+            "id": "5cfba6b7-3af2-45af-985d-e7a17016d644"
+          },
+          {
+            "email": "صالحی.نوین.تاک",
+            "id": "e0c0d48f-cb74-4d5c-803c-96de84532aaf"
+          },
+          {
+            "email": "ساریخانی",
+            "id": "1e942630-d683-4d53-80f2-d27c0df0cf70"
+          },
+          {
+            "email": "فرنوش.جدید",
+            "id": "a6b323a0-698a-40f6-bccd-2199692d3485"
+          },
+          {
+            "email": "شریعتی",
+            "id": "fd6cf4b3-5964-4af9-835e-01a662f9e66d"
+          },
+          {
+            "email": "گلی.جدید",
+            "id": "822ed73e-75b8-40e3-a3c1-750035160a45"
+          },
+          {
+            "email": "مجید.قندهاری",
+            "id": "905ee160-d7ac-4f1f-9707-52363329bc90"
+          },
+          {
+            "email": "حسن.هادی",
+            "id": "a16c4d3c-d5ce-4cd7-aa7c-b69591f5c86d"
+          },
+          {
+            "email": "قدیری",
+            "id": "a1cc961d-d266-43b1-8f7b-937a6495f08f"
+          },
+          {
+            "email": "مهدیس",
+            "id": "e5268676-a0f4-434c-bb85-65898f736174"
+          },
+          {
+            "email": "فتانه.فتاحیان",
+            "id": "c193bd12-de2c-4c27-a7f7-1c76c2db1abc"
+          },
+          {
+            "email": "کوروش.A",
+            "id": "b142381f-77b0-412d-9b17-32c3c49922e2"
+          },
+          {
+            "email": "زهرا.عبدی",
+            "id": "e4628b88-c322-421a-84d8-c70052214341"
+          },
+          {
+            "email": "مصطفی.A",
+            "id": "9892bde4-688f-4478-8fb0-5449ec825853"
+          },
+          {
+            "email": "خانوم.صابری",
+            "id": "afca60d8-84d2-4010-9f1b-29e4ca053ea5"
+          },
+          {
+            "email": "آریا-هادی",
+            "id": "96c2029c-e651-4545-a510-726d8cbf9618"
+          },
+          {
+            "email": "مهسا.مرجان",
+            "id": "d5b0a2f0-29fe-44b8-b77d-e94a2308fbff"
+          },
+          {
+            "email": "حمید.SZ",
+            "id": "3a71d7c7-d6e5-46a5-bfb9-0b9a2ed09a23"
+          },
+          {
+            "email": "حسین.RH",
+            "id": "65fdebe8-1e5b-4eb2-accb-673f5a9dfce2"
+          },
+          {
+            "email": "امین.طباخی",
+            "id": "7e52489a-a543-42c3-902a-1f841f65fa91"
+          },
+          {
+            "email": "مهسا.خرسند",
+            "id": "9200059d-2d76-44c7-92c9-133420f31e79"
+          },
+          {
+            "email": "ظفری",
+            "id": "b6c99ee4-03bb-432b-8e5d-c5ccd4bae6fb"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:28809",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 48606,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "*علی-روحانی",
+            "id": "104ba699-faac-4360-8413-f02fc01e8308"
+          },
+          {
+            "email": "\"Raman",
+            "id": "0900e6da-89d3-49b1-9342-3f6d77ac65c6"
+          },
+          {
+            "email": "محمد.تازیکی",
+            "id": "697d6973-ec4f-4194-872c-e03aa1279764"
+          },
+          {
+            "email": ".لیلا-براتی",
+            "id": "4a0eb3dc-b444-47a2-8142-222ba06fb563"
+          },
+          {
+            "email": ".کابلی",
+            "id": "b7adbeff-ddea-431a-86a3-ac804f36e267"
+          },
+          {
+            "email": "علیرضا.پورشفیعی",
+            "id": "85e16498-4165-47dc-b84e-46e3f06c7bf3"
+          },
+          {
+            "email": "آمنه.ذکایی",
+            "id": "30684731-6e05-4260-9822-ad27fa3cc590"
+          },
+          {
+            "email": "صالح.نظری",
+            "id": "b94278f4-4140-4b69-b352-84379087512d"
+          },
+          {
+            "email": "جغتایی",
+            "id": "7605995b-71d4-4f41-bf50-99653cdb5a0f"
+          },
+          {
+            "email": "شاهی",
+            "id": "bd9e014f-b059-4886-ae7e-c9ec9726bf4d"
+          },
+          {
+            "email": "بهاره",
+            "id": "8ba1ca4f-b6a7-416a-9e00-e5d647d80a0c"
+          },
+          {
+            "email": "M.ash",
+            "id": "b97f926f-4440-4709-a45e-9476220e1209"
+          },
+          {
+            "email": "زرگر",
+            "id": "ae7fbd71-8598-4fee-b5b4-e0d8d17ea9b6"
+          },
+          {
+            "email": "آرزو.شمس",
+            "id": "e76fc757-bcea-42dc-ac79-3805b868937b"
+          },
+          {
+            "email": "Shokoo",
+            "id": "add179d4-597a-4ec0-91a9-6c26e4345c85"
+          },
+          {
+            "email": "فاطمه.محمودی",
+            "id": "44106c2e-9ba8-449b-8a4f-9077d6f72dcd"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:48606",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 10077,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "سارا-",
+            "id": "b836ead4-b138-4002-f353-2b8a04833828"
+          },
+          {
+            "email": "*علیرضا-خزایی",
+            "id": "16904bb9-2c6e-42cf-e4c8-5a4ef9afa095"
+          },
+          {
+            "email": "\u0026اشرف-ایزدی",
+            "id": "dc1c6f16-c758-4db3-e255-8bdf830db82e"
+          },
+          {
+            "email": "*مسعود",
+            "id": "943b8dff-6293-4e55-ae03-06ab6e068639"
+          },
+          {
+            "email": ".الی",
+            "id": "05c271b3-4417-46a4-946a-c76e79e811a9"
+          },
+          {
+            "email": "+تکتم",
+            "id": "83d59258-0dfb-4f8b-a055-6657cbe89cd0"
+          },
+          {
+            "email": "\"مرجان-تهرانی",
+            "id": "a12368d2-da09-4b37-a295-3d7356a8f11f"
+          },
+          {
+            "email": "سعیدوجدانی",
+            "id": "1508c296-1768-4302-9936-e1b66dbd61a9"
+          },
+          {
+            "email": "^عاطفه",
+            "id": "fe27f703-e358-4aa9-9505-cc85d449bb30"
+          },
+          {
+            "email": "\u003cآوا",
+            "id": "f5f6d3db-2e49-4e15-871c-25e603f8e353"
+          },
+          {
+            "email": "\u003cمریم-z",
+            "id": "66e12e14-0c75-47fb-8e2c-3de844f89960"
+          },
+          {
+            "email": "\u0026مریم--فارسیان",
+            "id": "f87ddce1-cd00-4701-99ba-196550a0408e"
+          },
+          {
+            "email": "^بهمن-جدید",
+            "id": "b094b924-8360-4a7c-9744-89673f852fee"
+          },
+          {
+            "email": ".امیر-محمد",
+            "id": "9ac527bd-1034-437d-afe4-b16d23d621a6"
+          },
+          {
+            "email": ".بیتا-مرادی",
+            "id": "5dcc391a-bcf9-4bf1-93b4-9f6826cd0c8e"
+          },
+          {
+            "email": ".حمیدرضا-امیری",
+            "id": "67e8afd9-3045-4afe-a7ee-fd1e88f76a42"
+          },
+          {
+            "email": "غیر.قابل.فروش",
+            "id": "a1af281d-badf-4213-a08b-dcdc262bdaed"
+          },
+          {
+            "email": ".-.مهسا",
+            "id": "ac95219a-3f32-4244-a7a1-2c5fb4799941"
+          },
+          {
+            "email": "❤️محمد",
+            "id": "c0ea2a50-f205-4dd0-b0fd-da1c4cd3ce91"
+          },
+          {
+            "email": "چمنی",
+            "id": "1f84c054-66c6-457a-ab6a-80ca464b6252"
+          },
+          {
+            "email": "امیرحسین",
+            "id": "1f5ca404-e9cc-47b2-bbd6-1c8893427cb0"
+          },
+          {
+            "email": "رضا",
+            "id": "e5ea0777-dbab-44f6-83a9-94c7ab488b26"
+          },
+          {
+            "email": "حسن-محمدیان",
+            "id": "f1f63f0f-f8b0-4653-8b2b-da8b105ca88a"
+          },
+          {
+            "email": "مدینه.صادقی",
+            "id": "d31dde21-5800-4785-a38c-81271003b15c"
+          },
+          {
+            "email": "مهیار.کوشکی",
+            "id": "3e4d197d-8f73-4ce6-84a6-daee62b91cb6"
+          },
+          {
+            "email": "آدرین",
+            "id": "727732c5-6f29-4e3a-a375-a5a4c96a4f57"
+          },
+          {
+            "email": "آیناز2",
+            "id": "979ff012-5e53-45d9-a6af-cd91b151d89e"
+          },
+          {
+            "email": "سینا",
+            "id": "4a809bce-3d3b-4a9c-89be-6f42e8138779"
+          },
+          {
+            "email": "آدرین2",
+            "id": "5667b60a-f7f8-449b-ad07-6593864bb6f8"
+          },
+          {
+            "email": "شکوفهn",
+            "id": "9ba22b10-58d6-47cc-9611-f527bf2e7513"
+          },
+          {
+            "email": "آرمان.آذریان",
+            "id": "aede10c3-cc97-4568-808b-68835652bf59"
+          },
+          {
+            "email": "عطیه.وحیدی",
+            "id": "5c5c701b-6da5-4f68-872a-a8ce0fc117df"
+          },
+          {
+            "email": "رحمانی.New",
+            "id": "fc9653c3-7689-46b6-8dc7-92b83f408243"
+          },
+          {
+            "email": "حمید.نوروزی",
+            "id": "089ee409-0cd8-4643-bf09-5964d812bd33"
+          },
+          {
+            "email": "آید.یزدانی",
+            "id": "c0c40480-76d7-43e0-8258-d6ec9fc690e0"
+          },
+          {
+            "email": "هارون",
+            "id": "2aa7cfe3-ff17-4424-8255-422a9945d8eb"
+          },
+          {
+            "email": "آیلین✨",
+            "id": "182e323d-5be5-479d-b776-22c3034cc5d2"
+          },
+          {
+            "email": "پدیداران.",
+            "id": "d791bd9b-af4c-4c79-9418-a63b3a91aadb"
+          },
+          {
+            "email": "آرزو.",
+            "id": "bd1f854c-634e-4dbe-bb85-570e9d6ee1ef"
+          },
+          {
+            "email": "فاطمه.",
+            "id": "02303392-4b1f-4e54-bf2c-e3274a1c69b0"
+          },
+          {
+            "email": "حمزه.",
+            "id": "228f3c90-41ba-4c29-b1e8-db07cf9c34e6"
+          },
+          {
+            "email": "مجید.",
+            "id": "8385814b-a206-4afc-90ca-dd96113f5127"
+          },
+          {
+            "email": "محمد..",
+            "id": "0ceb7218-2299-4511-be81-ca6a7559e688"
+          },
+          {
+            "email": "مصی.",
+            "id": "9650fa70-27bd-4a80-9892-76e8e3ceea5e"
+          },
+          {
+            "email": "برجعلی",
+            "id": "35234da0-eaef-4b7a-a60e-34b7d5781b8a"
+          },
+          {
+            "email": "ابراهیم.جهانی2",
+            "id": "8b1b313c-56e3-411f-81be-32f989f5b41c"
+          },
+          {
+            "email": "اویس",
+            "id": "233d7962-f894-4507-b490-c757579e770e"
+          },
+          {
+            "email": "زهرا.گردی",
+            "id": "d22b71ad-9b97-4b04-8568-a624fc203033"
+          },
+          {
+            "email": "سلگی",
+            "id": "84263a3e-7ecc-4b93-8a94-7fa4adaf18e6"
+          },
+          {
+            "email": "آنیا",
+            "id": "e26ec448-a0c7-4dc4-8e20-8e88f5308bb1"
+          },
+          {
+            "email": "مهدی.حسینی*",
+            "id": "2e0c76cd-1588-4334-af4e-38801485b876"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "sockopt": {
+          "V6Only": false,
+          "acceptProxyProtocol": false,
+          "dialerProxy": "",
+          "domainStrategy": "UseIP",
+          "interface": "",
+          "mark": 0,
+          "tcpFastOpen": false,
+          "tcpKeepAliveIdle": 300,
+          "tcpKeepAliveInterval": 0,
+          "tcpMaxSeg": 1440,
+          "tcpMptcp": false,
+          "tcpNoDelay": false,
+          "tcpUserTimeout": 10000,
+          "tcpWindowClamp": 600,
+          "tcpcongestion": "bbr",
+          "tproxy": "off"
+        },
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-10077",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 51385,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "رحیم-زاده",
+            "id": "4e07fea0-6f25-494a-ab75-797e22d6f58f"
+          },
+          {
+            "email": "مهسا.A",
+            "id": "fe7ba058-f6bf-4741-b040-4eb9068b003d"
+          },
+          {
+            "email": "حسین-زاده-مقدم",
+            "id": "7055a9a9-e7ea-4764-9df9-56bb498f3fa4"
+          },
+          {
+            "email": "\u0026-جدید-عارف",
+            "id": "13a654bb-d86d-4fa7-9c80-9f1160a86d5f"
+          },
+          {
+            "email": "خشایار-01",
+            "id": "2b1aa33f-6d52-4720-9ce0-26d47c0c2429"
+          },
+          {
+            "email": "خشایار-02",
+            "id": "0b80aca3-dac4-4bf0-9563-6af819532bbf"
+          },
+          {
+            "email": ":رویا",
+            "id": "dda6bd17-ab43-40a0-ac09-3f1bf4614b6d"
+          },
+          {
+            "email": "منا.آذری",
+            "id": "2ae3f469-fff8-427b-b441-1174238ffeda"
+          },
+          {
+            "email": ".شهره",
+            "id": "024da71b-3da2-4e27-a7bf-42033fc8ef4d"
+          },
+          {
+            "email": "فرشاد-02",
+            "id": "4e513061-9ff8-4018-b411-5b8cc0451dc6"
+          },
+          {
+            "email": "A.شریفان",
+            "id": "7ffe11be-48e6-4280-bc5a-a5460e3d63f3"
+          },
+          {
+            "email": "امیر19",
+            "id": "e63d31c7-01ac-4e5e-beb3-eb8898720b34"
+          },
+          {
+            "email": "عبدالله",
+            "id": "c03d38fd-483d-461c-8256-1f2fcfe186ba"
+          },
+          {
+            "email": "مهندس-داورپناه",
+            "id": "6e2b06e2-b3c2-4669-8628-bba616c376dd"
+          },
+          {
+            "email": "حیدری",
+            "id": "fb01585c-8e52-4145-bccf-007b30608fb4"
+          },
+          {
+            "email": "ملک.تاج",
+            "id": "72bdae44-15aa-4f9c-ba4a-c6daf9f1f7d4"
+          },
+          {
+            "email": "شیدا",
+            "id": "df14b6bb-d192-4f38-99ce-61eb2b88af51"
+          },
+          {
+            "email": "فائزه",
+            "id": "4ea3f5c4-52ac-45c1-a2ee-84bb2028b872"
+          },
+          {
+            "email": "متین",
+            "id": "a2833444-b459-45e8-9cea-56c0981bea34"
+          },
+          {
+            "email": "تیموری",
+            "id": "41efa13c-dde0-4458-b39c-b1c5ef6e32a1"
+          },
+          {
+            "email": "سعیدی",
+            "id": "91146432-1fae-485f-83d0-4b53a98d676c"
+          },
+          {
+            "email": "قاسمی-02",
+            "id": "865a601c-3b9f-41e5-b159-2c7be534dbce"
+          },
+          {
+            "email": "باراد",
+            "id": "451f7bde-5b79-4ddf-b3ac-3a6a468c568e"
+          },
+          {
+            "email": "کوروش",
+            "id": "c7b99b62-7880-4c14-b0f7-830edcefdbad"
+          },
+          {
+            "email": "حسین.چی02",
+            "id": "603b0225-5bc1-4d4c-9770-90c8ba4ecb87"
+          },
+          {
+            "email": "سعید.V3",
+            "id": "06234588-52f9-49e7-9f1a-36e73d13e96a"
+          },
+          {
+            "email": "امیر03",
+            "id": "5b0a4b11-7c8c-4791-b09b-aef17d4d5634"
+          },
+          {
+            "email": "زمرد",
+            "id": "a6a750fc-a00a-4c4c-a6cd-57afd352bf81"
+          },
+          {
+            "email": "امیر01",
+            "id": "d5ef1ecb-323b-4389-84be-aeb094b117c8"
+          },
+          {
+            "email": "ملیحه-",
+            "id": "481ccf23-3bb4-40d3-98b6-d15a4386fa6f"
+          },
+          {
+            "email": "کتایون-ادیب",
+            "id": "342ad875-670e-4f58-93fb-4300a81e2fe4"
+          },
+          {
+            "email": "حسین.چی03",
+            "id": "2940a646-e112-47df-b58e-fe2d49bb0749"
+          },
+          {
+            "email": "بهرام.پور",
+            "id": "ae886910-fa0d-4ea9-b4a3-cf3f06cc4ef3"
+          },
+          {
+            "email": "شبنم.جدید",
+            "id": "7bdc434d-82d2-4a0e-af24-1dfc72915fc6"
+          },
+          {
+            "email": "-ندا",
+            "id": "fcde4282-d7b8-4324-acf4-9f108106cb3f"
+          },
+          {
+            "email": "آزاده.اشرافیان",
+            "id": "b9b72065-4afe-4048-a8db-87d9765e7e5c"
+          },
+          {
+            "email": "حسن.داورپناه",
+            "id": "aa88e35c-03be-4609-aa53-33cb61eccb84"
+          },
+          {
+            "email": "مبین02",
+            "id": "2c85b965-16ea-4ae8-ad4f-1c5245a0e243"
+          },
+          {
+            "email": "بهرام.پور02",
+            "id": "d350b824-3d53-45bc-bc81-62fbe27885c4"
+          },
+          {
+            "email": "جناب..عمیق",
+            "id": "1158a642-21ae-4738-823b-d1d2a4fb739a"
+          },
+          {
+            "email": "جناب.نامنی",
+            "id": "4928fee7-35f9-4ccd-9706-bcd5881d9303"
+          },
+          {
+            "email": "صابری.A",
+            "id": "4d2e6c52-029c-4cc6-a92e-63d3b989806f"
+          },
+          {
+            "email": "سحر.جدید",
+            "id": "4c038a5a-b4e9-4c25-b99f-70cedbf06f64"
+          },
+          {
+            "email": "ممدرضا",
+            "id": "3e041f43-1d76-4004-95dd-ff7da983b909"
+          },
+          {
+            "email": "ابی.A",
+            "id": "a1bdba16-674f-4285-b8dd-e02e9af2f0e1"
+          },
+          {
+            "email": "آرتا",
+            "id": "c39ce6e7-5eed-4542-b267-ec1fa6a02142"
+          },
+          {
+            "email": "امیر06",
+            "id": "94773191-e9e9-44b3-98cb-7e712bc1f8c8"
+          },
+          {
+            "email": "خالصی",
+            "id": "22e0b3c9-99e1-440d-b55a-c66985052c73"
+          },
+          {
+            "email": "وهاب",
+            "id": "a6134fc9-3843-4eaf-a14f-27d7008a4c9b"
+          },
+          {
+            "email": "پرهام",
+            "id": "85ff2596-8c4d-4b9c-ac79-40005b205f7c"
+          },
+          {
+            "email": "دکتر.یعقوب",
+            "id": "9abf83e7-92aa-406d-9bb7-b436f3b1f21b"
+          },
+          {
+            "email": "قنادیان",
+            "id": "42798e28-d720-4a5c-a6ca-141d371deed5"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:51385",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 33965,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "محمد-05",
+            "id": "6fb2f221-7130-4b6b-d822-22bc0f2cd106"
+          },
+          {
+            "email": "+محمد-03",
+            "id": "ddcddc92-fab8-4354-86ac-51d8fe4624e8"
+          },
+          {
+            "email": "سجاد.احمدی",
+            "id": "86bf899c-639e-4991-9e1b-0c49a8231729"
+          },
+          {
+            "email": ".محمد-06",
+            "id": "f7bf81e1-4f4c-4fbc-ad08-be2927c932c3"
+          },
+          {
+            "email": "-نرگس",
+            "id": "36f0ede0-e616-4d03-947a-0f096835292a"
+          },
+          {
+            "email": "محمد-07",
+            "id": "491dc19e-3938-44da-b012-bc9c1a4222eb"
+          },
+          {
+            "email": "محمد.رضایی",
+            "id": "5e911fc8-f2a0-40ef-91c6-a852e692f627"
+          },
+          {
+            "email": "محمد-01",
+            "id": "b9d21230-1e64-4c71-9a42-1461398a4628"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:33965",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 46577,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "“ارشاد",
+            "id": "6f3eb8dd-11f7-4804-952b-af300ceaa040"
+          },
+          {
+            "email": "هانیه",
+            "id": "3cf72dbe-5769-4607-b1c4-41a55b3a3d3f"
+          },
+          {
+            "email": "*مهدی-02",
+            "id": "02790638-29ab-412e-a176-0b4754182ee3"
+          },
+          {
+            "email": ":آسیه",
+            "id": "12336c65-aaea-4d99-b517-c23c529e5e45"
+          },
+          {
+            "email": "^فاطی",
+            "id": "41a4e093-9171-4432-a7f8-75918e6b676a"
+          },
+          {
+            "email": "\u0026-جیران",
+            "id": "12b7b803-3f09-4885-8029-e8ca58ff093a"
+          },
+          {
+            "email": ".بانو",
+            "id": "c80a494b-b6aa-4ed8-95f2-3c78d849e0e4"
+          },
+          {
+            "email": "\u0026-علی",
+            "id": "153059d7-42a1-4fab-9ff1-3d63e65ca91a"
+          },
+          {
+            "email": ".حلمی",
+            "id": "86a5e684-d96c-4a3e-a60b-86eb98b2d22c"
+          },
+          {
+            "email": "کیانی",
+            "id": "fc22334f-9b9f-4f18-9a58-9350a9cafc4c"
+          },
+          {
+            "email": "حافظیان",
+            "id": "439f9c4b-1026-499c-a091-563c3ee1d7b9"
+          },
+          {
+            "email": "مهدیار",
+            "id": "b75d4882-259d-4f52-962c-dcd7964dcd43"
+          },
+          {
+            "email": "حاتمی-",
+            "id": "7b159e1c-292a-42aa-b624-eb53a31166ce"
+          },
+          {
+            "email": "ابی",
+            "id": "71bcbeb5-8f31-47aa-a2a3-7dd4e385a266"
+          },
+          {
+            "email": "مرادی",
+            "id": "1cf4a35f-7602-425f-8008-80c241914d8f"
+          },
+          {
+            "email": "ناصری",
+            "id": "04d74a1d-d5c2-4805-b25a-d581c40d2fc0"
+          },
+          {
+            "email": "رحیمی.A",
+            "id": "9d5698c8-91cc-4839-9b4b-376b1e38389a"
+          },
+          {
+            "email": "مصطفی",
+            "id": "d4f88d70-78db-4cde-973f-a516d76de88a"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:46577",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 36800,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "+آرمین-گرامی",
+            "id": "9fe4f4a2-be59-4c34-8da5-6d401c0291fa"
+          },
+          {
+            "email": "+amir-hosein.p",
+            "id": "5a1205f3-22a1-4200-be7d-9e1eac1b304f"
+          },
+          {
+            "email": "Kami02",
+            "id": "6269acc8-cc1c-4a95-91e8-cf53bc9bf04c"
+          },
+          {
+            "email": "\"احسان-رضایی",
+            "id": "ef7eb6e5-ab2c-42aa-91e6-a1b340375140"
+          },
+          {
+            "email": "“نژادی",
+            "id": "18ba4f00-2888-4b55-abf6-375788302da2"
+          },
+          {
+            "email": "..صبا",
+            "id": "c038dc99-d931-45d6-8b08-e67fa76e82e5"
+          },
+          {
+            "email": "محمود",
+            "id": "4fd6e8ea-adeb-4040-b141-ba753dc73e9d"
+          },
+          {
+            "email": "\u003cخانم-حیدری",
+            "id": "d3260cdb-9093-4b38-acb1-e56017811e59"
+          },
+          {
+            "email": "Lenzo",
+            "id": "ae114a6c-a789-40e7-8b63-d146b12c9df8"
+          },
+          {
+            "email": "زندیه",
+            "id": "eb35c3d6-eccd-47a3-8430-79da17809823"
+          },
+          {
+            "email": ".مهناز",
+            "id": "2713b50f-4d74-4c14-a928-f2d8d01c8e14"
+          },
+          {
+            "email": ".Saad. A",
+            "id": "b7d8c0b0-96eb-4c2b-bab6-babe72d94189"
+          },
+          {
+            "email": "1 غیر.قابل.فروش",
+            "id": "4cc497f3-96ab-4e65-a63e-a4fa586bee60"
+          },
+          {
+            "email": "شمیم",
+            "id": "38e5a38e-79b7-4bdf-8972-9e8a82cb2c9b"
+          },
+          {
+            "email": "آرین-حیدری",
+            "id": "27b461b6-c4c2-42dc-8e9a-ea69b315cafa"
+          },
+          {
+            "email": "Amir_Reza22",
+            "id": "c56b8199-ce00-4043-ac8a-0fcccc8eae14"
+          },
+          {
+            "email": "رامین.گرامی",
+            "id": "f82de220-fbcb-4ca9-92f0-3455e6078bec"
+          },
+          {
+            "email": "Maria",
+            "id": "258a83c0-b2fe-42de-a97e-0da2935d981d"
+          },
+          {
+            "email": "امیر.گرامی",
+            "id": "bbe6359f-a22c-466f-acb9-473197afa667"
+          },
+          {
+            "email": "سمیرا",
+            "id": "317bfc58-b672-40bb-981c-cbf8bc8950cd"
+          },
+          {
+            "email": "اشکان.گرامی",
+            "id": "9448bb6b-262e-4d84-b392-8382df0b3ad5"
+          },
+          {
+            "email": "لیلا.تیموریان",
+            "id": "7b3388a8-f9e2-4cda-9105-a4993a6441e8"
+          },
+          {
+            "email": "Abas.pi",
+            "id": "377cfe98-9db1-4039-855f-9cfeece8c335"
+          },
+          {
+            "email": "غیور.A",
+            "id": "f65c538f-aae2-4861-911e-bb66b342e8bc"
+          },
+          {
+            "email": "Masih.Amir",
+            "id": "2181c986-cb9d-4f64-b979-5d08f7b52b12"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "sockopt": {
+          "V6Only": false,
+          "acceptProxyProtocol": false,
+          "dialerProxy": "",
+          "domainStrategy": "UseIP",
+          "interface": "",
+          "mark": 0,
+          "tcpFastOpen": false,
+          "tcpKeepAliveIdle": 300,
+          "tcpKeepAliveInterval": 0,
+          "tcpMaxSeg": 1440,
+          "tcpMptcp": false,
+          "tcpNoDelay": false,
+          "tcpUserTimeout": 10000,
+          "tcpWindowClamp": 600,
+          "tcpcongestion": "bbr",
+          "tproxy": "off"
+        },
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:36800",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 39315,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "..امیر-حسین-فیروزه",
+            "id": "25a0e23e-a687-4372-98d8-f4ea0a719e90"
+          },
+          {
+            "email": "\u0026ملیحه-دلاور",
+            "id": "6065323d-1466-4216-a003-548f6109ce78"
+          },
+          {
+            "email": ".حیدر-ناظری-جدید",
+            "id": "6ace29a2-25c6-44bf-adb0-a5fe41bf9ae2"
+          },
+          {
+            "email": "نازلی.سجادی",
+            "id": "0e5d880f-6559-4bb9-b308-5921582aebcd"
+          },
+          {
+            "email": "حاج.بهمن",
+            "id": "93a5b7eb-2f18-4d02-9960-c28e86eac392"
+          },
+          {
+            "email": "فاطمه.طهانی",
+            "id": "f93f1b48-0b6c-4688-851f-555f182ccbde"
+          },
+          {
+            "email": ":سروش-هاشمی",
+            "id": "ba6fbb55-b33e-4070-a0a2-0d0c6c19f339"
+          },
+          {
+            "email": "دنیا.نوید",
+            "id": "6ed01cf2-20db-41b1-b220-2d5b7b720cea"
+          },
+          {
+            "email": ".پوریا-یگانه",
+            "id": "1e73a047-67b3-48fe-896b-ef7037af5ae7"
+          },
+          {
+            "email": "نسرین-مهدی",
+            "id": "9c47909b-18e6-441d-96c7-84414b5eba9c"
+          },
+          {
+            "email": "غیر.قابل.فروش...",
+            "id": "b5327d14-ead9-4fbf-ab4c-efeb4b2357a4"
+          },
+          {
+            "email": ".علیزاده",
+            "id": "c0382d25-f8d3-43c0-b9a0-eb4a38b5ab04"
+          },
+          {
+            "email": "بهروز.خواجوی",
+            "id": "f91d46d6-7cef-40c2-9bf3-9d4907376331"
+          },
+          {
+            "email": "هومن",
+            "id": "4cbe5cfe-1afc-455c-86e5-976bda48061e"
+          },
+          {
+            "email": "خانم.کلاهدوز",
+            "id": "8b224018-ded9-4f76-990a-9115c2cdcdc2"
+          },
+          {
+            "email": "مادر.خانم.کلاهدوز",
+            "id": "30f47f89-ba8f-4ca4-bb30-39641515ce2d"
+          },
+          {
+            "email": "محسن.حسین.زاده",
+            "id": "c1a0cf58-0253-446e-b469-f1cdf59c2f24"
+          },
+          {
+            "email": "سپیده..سعیدی.راد",
+            "id": "b6f553fe-c22d-4335-8a25-5a7966712e9a"
+          },
+          {
+            "email": "مهدی.ربانیان",
+            "id": "73911f66-5699-41a6-b095-9363feb91ef4"
+          },
+          {
+            "email": "ستاره.سعیدی.راد",
+            "id": "35cfd540-c263-4999-8fd3-2bcbe78788b5"
+          },
+          {
+            "email": "علی.احسانی",
+            "id": "c415f3eb-ac53-45b6-a60d-cc83e0a05754"
+          },
+          {
+            "email": "آرزو.ربانی",
+            "id": "a16856af-a8f7-4947-b554-b895a8b1d745"
+          },
+          {
+            "email": "نیما.تجری",
+            "id": "dd4772ef-eafc-4e21-9918-e44a9845fa22"
+          },
+          {
+            "email": "سجاد.اشرف.زاده",
+            "id": "be099ace-0676-4f16-b365-c84380466679"
+          },
+          {
+            "email": "فاطمه.مظلوم",
+            "id": "1dd0b2fa-d667-4e8a-be10-192a0e07b486"
+          },
+          {
+            "email": "حامد",
+            "id": "3f6c916c-0293-4f02-807f-5f8af66a472e"
+          },
+          {
+            "email": "عبدی",
+            "id": "3a3fa16b-8434-4d10-a72e-0594fb1fc410"
+          },
+          {
+            "email": "صداقت",
+            "id": "f723c016-6dd7-4322-8dfa-9aee0e7c5ae5"
+          },
+          {
+            "email": "خانم.حاج.بهمن",
+            "id": "db1c3c31-624f-4c43-8370-ad54ef3aa2ec"
+          },
+          {
+            "email": "فرهاد.کلاهدوز",
+            "id": "69b2e22e-00ce-4f51-86ce-e4fa60697243"
+          },
+          {
+            "email": "مهاجران",
+            "id": "0733f1e4-eda7-4c5e-a529-1395602f0e2d"
+          },
+          {
+            "email": "امیر.یزدانی",
+            "id": "77917e36-ac6f-4abf-a071-5d0eec6c42d0"
+          },
+          {
+            "email": "مصطفی.جمالی",
+            "id": "b978d4a0-fb16-44a3-9663-f515f5eff3c3"
+          },
+          {
+            "email": "..براتی",
+            "id": "88a25de6-b1be-4de3-a2d2-7d2621e06352"
+          },
+          {
+            "email": "شهاب.اسدی",
+            "id": "85dc1f68-7c1f-4375-b356-1adaab47ea78"
+          },
+          {
+            "email": "رحیم.نیا",
+            "id": "1e9f212a-ab40-4020-b3d6-e3e2e00e115c"
+          },
+          {
+            "email": "شریفان",
+            "id": "92fd226c-6299-4c4a-bff7-10b3912cc17b"
+          },
+          {
+            "email": "میلاد.براتی02",
+            "id": "8e9450a5-49e3-4b51-ad0e-21819c8a7372"
+          },
+          {
+            "email": "رحیمی",
+            "id": "14734e90-e225-4cc1-ae09-5e9b9d2f0f7f"
+          },
+          {
+            "email": "ایزانلو",
+            "id": "55e5723a-5428-459e-a869-f717f244d91c"
+          },
+          {
+            "email": "امین.وداعی",
+            "id": "0e68d022-b9b9-4e7e-9f5b-e67eed0ffb19"
+          },
+          {
+            "email": "فیروزی",
+            "id": "14a9f8d4-eef8-471b-ae2c-ab909e5b5181"
+          },
+          {
+            "email": "خرمی",
+            "id": "56acb0a4-c783-464f-827a-74c810bc7d7d"
+          },
+          {
+            "email": "ندا.A",
+            "id": "1b9dd162-7d7f-463a-a7c6-bfb9073b3e1b"
+          },
+          {
+            "email": "رضا.شیردل",
+            "id": "b99715ba-60c7-4daa-a621-16e9ea58be1c"
+          },
+          {
+            "email": "پیمان.وداعی",
+            "id": "ff01a53e-ab5e-4757-9e5e-823257dfc1ac"
+          },
+          {
+            "email": "ملیحه.خواجوی",
+            "id": "3290efa6-f55e-4579-9e97-dc4a10888b10"
+          },
+          {
+            "email": "محمدی.A",
+            "id": "321334a8-58ce-4265-9c62-107a607dd6d7"
+          },
+          {
+            "email": "صادق.اشرف.زاده",
+            "id": "79497bd7-87be-4291-8e8b-4098a8d0098a"
+          },
+          {
+            "email": "ابراهیم.A",
+            "id": "7e7bf2f5-c235-4a70-840f-e8217e15ccb4"
+          },
+          {
+            "email": "آرمین.A",
+            "id": "b302056f-c3d8-4269-acaf-001f1bfea35e"
+          },
+          {
+            "email": "محدثه.مظلوم",
+            "id": "02dd10b5-fc91-4486-a91a-2c5006855973"
+          },
+          {
+            "email": "جهانی",
+            "id": "c277963a-5a2c-4488-969a-5811cda9f42f"
+          },
+          {
+            "email": "داوود.حقانی",
+            "id": "b82a910d-6056-4806-a95f-6e8bda3de6f8"
+          },
+          {
+            "email": "هدی.عفتی",
+            "id": "4597fe3f-4085-4fd3-a419-9c6862028743"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:39315",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 47482,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": ".Sina-04",
+            "id": "6a124917-be2a-4888-a128-df56335c7e9c"
+          },
+          {
+            "email": "100GB-بازرگانی",
+            "id": "b81f27d5-699d-4977-8d2e-44a6dd6650de"
+          },
+          {
+            "email": "پریا-001",
+            "id": "08c80bf1-c841-46da-ab10-763478b63145"
+          },
+          {
+            "email": "علی.01",
+            "id": "a2e69b8f-dd18-4159-a5f3-cac278cea9d8"
+          },
+          {
+            "email": "PM",
+            "id": "9ca80972-8bb6-48d1-88db-95d2304d69ee"
+          },
+          {
+            "email": "A.E",
+            "id": "2f4c8cf0-8bca-4b14-8275-ad4944d60c42"
+          },
+          {
+            "email": "سیدی.001",
+            "id": "db5201f9-aca1-4e06-97b0-fea2142ab297"
+          },
+          {
+            "email": "Ayda",
+            "id": "21da6f0c-d546-432f-9747-d7d2029ce30d"
+          },
+          {
+            "email": "Farhan.01",
+            "id": "572d8e72-d774-4abb-969d-9ccb674d29db"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "sockopt": {
+          "V6Only": false,
+          "acceptProxyProtocol": false,
+          "dialerProxy": "",
+          "domainStrategy": "UseIP",
+          "interface": "",
+          "mark": 0,
+          "tcpFastOpen": false,
+          "tcpKeepAliveIdle": 300,
+          "tcpKeepAliveInterval": 0,
+          "tcpMaxSeg": 1440,
+          "tcpMptcp": false,
+          "tcpNoDelay": false,
+          "tcpUserTimeout": 10000,
+          "tcpWindowClamp": 600,
+          "tcpcongestion": "bbr",
+          "tproxy": "off"
+        },
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:47482",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 50887,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "مهدی.امینی",
+            "id": "36512919-c087-4f76-cf45-8d701535334e"
+          },
+          {
+            "email": "*دكتر-صافي",
+            "id": "16dcb86f-a8fe-45bc-8648-dda17e4e14d3"
+          },
+          {
+            "email": ".دکتر-کارگر",
+            "id": "ade7eb94-7a5c-413e-e638-219c9bb31ab9"
+          },
+          {
+            "email": "مصی",
+            "id": "eae805a5-4049-457c-ea1a-75da8955ccbb"
+          },
+          {
+            "email": "*افسانه-New",
+            "id": "ac7b928d-6de0-4f8d-a448-f14923fdcd9e"
+          },
+          {
+            "email": "..Ali",
+            "id": "33a9c18c-dedf-48ba-a162-c63d93a843b4"
+          },
+          {
+            "email": "^شیوا",
+            "id": "bffaae50-0cd9-47d3-8271-57a0c49df3f2"
+          },
+          {
+            "email": "\u003cعموحسن",
+            "id": "baff37b5-922a-4043-821a-ed8652045e20"
+          },
+          {
+            "email": "\u003cزن-عمو",
+            "id": "ec995bfb-ca8f-43f3-9d5e-c0db7accd59c"
+          },
+          {
+            "email": "\u003cمعین",
+            "id": "0d238126-aa26-49d1-bec2-bdea4adc13f4"
+          },
+          {
+            "email": ":شیرزاد",
+            "id": "10df618f-c245-43bb-a0a8-169359147102"
+          },
+          {
+            "email": "خلیل.ابراهیمی",
+            "id": "f2b24894-61e0-4de7-b76a-78b27e0087cb"
+          },
+          {
+            "email": ".MLM",
+            "id": "49b7a719-ea28-455e-8c65-65de387389aa"
+          },
+          {
+            "email": "عمه_فریده",
+            "id": "e65b2284-cfd2-40df-b9fa-54f027fc49c9"
+          },
+          {
+            "email": "داوود.New",
+            "id": "5df795ae-1f5f-46c9-9ace-a5d59f255625"
+          },
+          {
+            "email": "شکیبا",
+            "id": "51f4cce9-e85d-469b-a91c-84b62472c95a"
+          },
+          {
+            "email": "صابری",
+            "id": "d716a82e-5f3e-48e1-8362-7d6785853f4a"
+          },
+          {
+            "email": "مهران",
+            "id": "8a18e71d-c2a3-427a-8963-3f36105ab8e8"
+          },
+          {
+            "email": "M.Hadi",
+            "id": "72ef978a-245c-4068-832a-9a9e17916c29"
+          },
+          {
+            "email": "ایمان",
+            "id": "3e775b4a-a49f-483d-b140-55e5159e82e3"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:50887",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 33865,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "testing",
+            "id": "41629688-a9a2-48bf-a465-e5b3b2684a0a"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "sockopt": {
+          "V6Only": false,
+          "acceptProxyProtocol": false,
+          "dialerProxy": "",
+          "domainStrategy": "UseIP",
+          "interface": "",
+          "mark": 0,
+          "tcpFastOpen": false,
+          "tcpKeepAliveIdle": 300,
+          "tcpKeepAliveInterval": 0,
+          "tcpMaxSeg": 1440,
+          "tcpMptcp": false,
+          "tcpNoDelay": false,
+          "tcpUserTimeout": 10000,
+          "tcpWindowClamp": 600,
+          "tcpcongestion": "bbr",
+          "tproxy": "off"
+        },
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-33865",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": {
+        "strategy": "always",
+        "refresh": 5,
+        "concurrency": 3
+      }
+    },
+    {
+      "listen": null,
+      "port": 52335,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "*محمد-02-New",
+            "id": "02052f3a-3a85-4231-e111-2ed33a512276"
+          },
+          {
+            "email": "عمو-مظاهر-New",
+            "id": "24569757-d530-4102-f4d3-d1e6a27b6685"
+          },
+          {
+            "email": "محمد-تقی-New",
+            "id": "dc35e437-5109-4310-d36c-7c59827ee5b5"
+          },
+          {
+            "email": "\"وحید-01-New",
+            "id": "7b70ffd7-12b1-4925-b7b9-313b5b0a089f"
+          },
+          {
+            "email": "محمد_رضایی-New",
+            "id": "b3ff6b2d-1418-4d45-ef29-621f7c745220"
+          },
+          {
+            "email": "پیمان-New",
+            "id": "b19c9438-0887-4ddf-b1b0-8e2812856a76"
+          },
+          {
+            "email": "\"وحید-02-New",
+            "id": "24f874f9-3637-436b-8ea2-d8c3e118c54f"
+          },
+          {
+            "email": "مجید",
+            "id": "e2f20992-78bb-441a-ada5-6b621eb4b997"
+          },
+          {
+            "email": "Elyas.VPN",
+            "id": "3ecd32a2-a7aa-4cc6-befc-b1ba11c8fa47"
+          },
+          {
+            "email": "امان.جدید",
+            "id": "7b571528-59ca-4893-8a67-b33fd4167eef"
+          },
+          {
+            "email": "مازیار",
+            "id": "3b816f15-82a1-4dca-ad27-f497cc38e448"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:52335",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": null
+    },
+    {
+      "listen": null,
+      "port": 20631,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "M1",
+            "id": "7fc13d62-0978-46db-b781-f33ceec2a353"
+          },
+          {
+            "email": "M2",
+            "id": "c7c5e9c6-2e94-4ecb-89bd-7515cbd53ba7"
+          },
+          {
+            "email": "M3",
+            "id": "747b6ec5-28b5-4636-9f40-0993fea68d9e"
+          },
+          {
+            "email": "M4",
+            "id": "acd242ac-b342-4ebf-9947-d3547ed7292d"
+          },
+          {
+            "email": "Mz-01",
+            "id": "939895a4-3f3a-4fe6-b0eb-aa0a2e9ca7d0"
+          },
+          {
+            "email": "SMD-02",
+            "id": "2f359a80-9244-4e46-8036-a038e90e39fc"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-20631",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      },
+      "allocate": {
+        "strategy": "always",
+        "refresh": 5,
+        "concurrency": 3
+      }
+    },
+    {
+      "listen": null,
+      "port": 34752,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "MOM-01",
+            "id": "2a1c499d-aca0-41b6-9f8c-e0fe5fc898b9"
+          },
+          {
+            "email": "a701",
+            "id": "a54ffb06-70fb-4ec9-a68c-aa49d9814214"
+          },
+          {
+            "email": "a702",
+            "id": "eea62488-de54-4e50-82f1-da0bc1f3c600"
+          },
+          {
+            "email": "a703",
+            "id": "36b7e8b9-53d7-42ca-8ec2-f6b2f98067e1"
+          },
+          {
+            "email": "a704",
+            "id": "b462932e-5eeb-4e3a-aa03-202fe142263f"
+          },
+          {
+            "email": "a705",
+            "id": "a561f212-2cc9-464c-8c87-36a552bd8086"
+          },
+          {
+            "email": "a706",
+            "id": "d5926feb-6134-4674-ade8-119595560df9"
+          },
+          {
+            "email": "a707",
+            "id": "0c8eccf6-d6ad-4078-9554-49dd2dd9df74"
+          },
+          {
+            "email": "a708",
+            "id": "c72d0279-c1e7-4bae-95b3-7b206f7c9be7"
+          },
+          {
+            "email": "a709",
+            "id": "77d52dd5-4408-4919-bae2-8f0908cae1d2"
+          },
+          {
+            "email": "a710",
+            "id": "269e83e0-b0a1-4701-8fe1-a0a48b5fb547"
+          },
+          {
+            "email": "X.1",
+            "id": "ee843d5d-c3cd-4126-bb57-22deb01f7d82"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "sockopt": {
+          "acceptProxyProtocol": false,
+          "mark": 0,
+          "tcpFastOpen": false,
+          "tproxy": "off"
+        },
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "request": {
+              "headers": {
+                "Host": [
+                  "ponisha.ir"
+                ]
+              },
+              "method": "GET",
+              "path": [
+                "/"
+              ],
+              "version": "1.1"
+            },
+            "response": {
+              "headers": {},
+              "reason": "OK",
+              "status": "200",
+              "version": "1.1"
+            },
+            "type": "http"
+          }
+        }
+      },
+      "tag": "inbound-0.0.0.0:34752",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "allocate": null
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy-01",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "fd1d:fc98:b73e:e201::2",
+            "port": 27280,
+            "users": [
+              {
+                "id": "7401e3c4-869c-4f22-9824-ea69dce57b17",
+                "flow": "",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        }
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      }
+    },
+    {
+      "tag": "blocked",
+      "protocol": "blackhole",
+      "settings": {}
+    }
+  ],
+  "transport": null,
+  "policy": {
+    "levels": {
+      "0": {
+        "statsUserDownlink": true,
+        "statsUserUplink": true
+      }
+    },
+    "system": {
+      "statsInboundDownlink": true,
+      "statsInboundUplink": true,
+      "statsOutboundDownlink": true,
+      "statsOutboundUplink": true
+    }
+  },
+  "api": {
+    "tag": "api",
+    "services": [
+      "HandlerService",
+      "LoggerService",
+      "StatsService"
+    ]
+  },
+  "stats": {},
+  "reverse": null,
+  "fakedns": null,
+  "observatory": null,
+  "burstObservatory": null
+}
