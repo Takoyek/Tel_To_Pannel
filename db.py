@@ -145,8 +145,7 @@ def search_in_sqlite(db_path, search_term):
         return False
 
 def main():
-    file_path = r"D:\AVIDA\CODE\Tel_To_Pannel\x-ui.db"
-    
+    file_path = r"D:\AVIDA\CODE\Tel_To_Pannel\db_files\x-ui (9).db"    
     search_term = input("\033[93mلطفاً نام کاربری را وارد کنید: \033[0m").strip()
     if not search_term:
         print("\033[91mخطا: عبارت جستجو نمیتواند خالی باشد.\033[0m")
