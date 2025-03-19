@@ -16,7 +16,6 @@ def find_latest_file(directory):
         latest_file = max(files, key=os.path.getctime)
         return latest_file
     except Exception as e:
-        print("\033[91mخطا در خواندن پوشه:\033[0m", e)
         return None
 
 def is_sqlite3_file(file_path):
@@ -63,32 +62,27 @@ def calculate_time_remaining(expire_ts, refreshed_on):
         hours = delta.seconds // 3600
         return f"{days} روز و {hours} ساعت"
     except:
-        return "نامعلوم"
+        return ""
 
 def format_user_data(row):
-    # دریافت زمان فعلی برای محاسبات
     refreshed_time = datetime.now().strftime('%Y-%m-%d %H:%M')
     
-    # تبدیل تاریخ انقضا
     expire_date = convert_timestamp(row.get('expiry_time', 0))
     shamsi_expire = to_shamsi(expire_date) if expire_date else "N/A"
     
-    # تبدیل تاریخ بروزرسانی به شمسی
     try:
         gregorian_dt = datetime.strptime(refreshed_time, '%Y-%m-%d %H:%M')
         j_date = jdatetime.datetime.fromgregorian(datetime=gregorian_dt)
         refreshed_jdate = j_date.strftime('%Y/%m/%d - %H:%M')
     except Exception as e:
-        refreshed_jdate = "خطا در تاریخ"
+        refreshed_jdate = ""
 
-    # محاسبه حجم‌ها
     total_data = row.get('total', 0)
     upload = row.get('up', 0)
     download = row.get('down', 0)
     used_data = upload + download
     remaining_data = total_data - used_data
     
-    # ساخت دیکشنری فرمت شده
     formatted = {
         '📝 نام کاربری': row.get('email', ''),
         '⚙️ وضعیت': '✅ فعال' if row.get('enable', 0) == 1 else '❌ غیرفعال',
@@ -104,7 +98,6 @@ def format_user_data(row):
 def search_in_sqlite(db_path, search_term):
     try:
         if not is_sqlite3_file(db_path):
-            print("\033[91mخطا: فایل دیتابیس معتبر نیست\033[0m")
             return False
 
         conn = sqlite3.connect(db_path)
@@ -129,8 +122,6 @@ def search_in_sqlite(db_path, search_term):
             results = cursor.fetchall()
             
             if results:
-                print(f"\n\033[92m• نتایج در جدول: {table_name}\033[0m")
-                print(f"\033[94mتعداد رکوردها: {len(results)}\033[0m")
                 cursor.execute(f"PRAGMA table_info({table_name})")
                 column_names = [col[1] for col in cursor.fetchall()]
                 
@@ -161,22 +152,18 @@ def search_in_sqlite(db_path, search_term):
         return found
 
     except Exception as e:
-        print(f"\033[91mخطا در اتصال به دیتابیس: {str(e)}\033[0m")
         return False
 
 def main():
     directory = r"/root/DATA/Uploads/7517469464 [avidax1_bot]/"
     if not os.path.exists(directory):
-        print("\033[91mپوشه موردنظر وجود ندارد!\033[0m")
         return
     
     latest_file = find_latest_file(directory)
     if not latest_file:
-        print("\033[91mفایلی در پوشه یافت نشد.\033[0m")
         return
     
     if not is_sqlite3_file(latest_file):
-        print("\033[91mفایل انتخاب شده معتبر نیست (SQLite3 نیست)!\033[0m")
         return
     
     search_term = input("\033[93mلطفاً نام کاربری را وارد کنید: \033[0m").strip()
