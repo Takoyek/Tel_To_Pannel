@@ -127,9 +127,9 @@ def main():
     if not latest_file or not is_sqlite3_file(latest_file):
         return
     
-    search_term = input("\033[93mلطفاً نام کاربری را وارد کنید: \033[0m").strip()
+    search_term = input("\033[93m✍️ نام اشتراکی که می خواهید تمدید شود چیست؟ \033[0m").strip()
     if not search_in_sqlite(latest_file, search_term):
-        print(f"\n\033[91mنام کاربری '{search_term}' وجود ندارد یا اشتباه است.\033[0m")
+        print(f"\n\033[91mاشتراک با نام '{search_term}' وجود ندارد یا اشتباه است.\033[0m")
 
 if __name__ == "__main__":
     main()
