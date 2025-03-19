@@ -86,13 +86,13 @@ def format_user_data(row):
     
     # ساخت دیکشنری فرمت شده
     formatted = {
-        '🆔 نام کاربری': row.get('email', ''),
-        '🛜 وضعیت': '✅ فعال' if row.get('enable', 0) == 1 else '❌ غیرفعال',
-        '📅 تاریخ پایان اشتراک': f"\n{shamsi_expire}\n{expire_date}" if expire_date else "N/A",
+        '📝 نام کاربری': row.get('email', ''),
+        '⚙️ وضعیت': '✅ فعال' if row.get('enable', 0) == 1 else '❌ غیرفعال',
+        '📅 تاریخ پایان اشتراک': f"\n{shamsi_expire}  --------  {expire_date}" if expire_date else "N/A",
         '⏰ زمان باقیمانده': calculate_time_remaining(row.get('expiry_time', 0), refreshed_time),
         '🔋 حجم کل': format_bytes(total_data),
-        '🪫 حجم مصرف شده': format_bytes(used_data),
-        '⌛️ حجم باقیمانده': format_bytes(remaining_data),
+        '📤 حجم مصرف شده': format_bytes(used_data),
+        '📥 حجم باقیمانده': format_bytes(remaining_data),
         '♻️ آخرین بروزرسانی': refreshed_jdate
     }
     return formatted
@@ -134,22 +134,22 @@ def search_in_sqlite(db_path, search_term):
                     raw_data = dict(zip(column_names, row))
                     formatted_data = format_user_data(raw_data)
                     
-                    print("\n\033[95m" + "="*20 + "\033[0m")
+                    print("\n\033[95m" + "_"*20 + "\033[0m")
                     keys_order = [
-                        '🆔 نام کاربری', 
-                        '🛜 وضعیت',
+                        '📝 نام کاربری', 
+                        '⚙️ وضعیت',
                         '📅 تاریخ پایان اشتراک',
                         '⏰ زمان باقیمانده',
                         '🔋 حجم کل',
-                        '🪫 حجم مصرف شده',
-                        '⌛️ حجم باقیمانده',
+                        '📤 حجم مصرف شده',
+                        '📥 حجم باقیمانده',
                         '♻️ آخرین بروزرسانی'
                     ]
                     
                     for key in keys_order:
                         if key in formatted_data and formatted_data[key]:
                             print(f"{key}: {formatted_data[key]}")
-                    print("\033[95m" + "="*20 + "\033[0m")
+                    print("\033[95m" + "_"*20 + "\033[0m")
                 
                 found = True
 
