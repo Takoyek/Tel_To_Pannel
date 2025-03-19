@@ -91,10 +91,11 @@ def search_in_sqlite(db_path, search_term):
             if 'email' not in [col.lower() for col in columns]:
                 continue
 
+            # جستجوی دقیق با COLLATE NOCASE (عدم حساسیت به بزرگی/کوچکی حروف)
             cursor.execute(
                 f'''SELECT * FROM "{table_name}" 
-                WHERE LOWER(email) LIKE ?''',
-                ('%' + search_term.lower() + '%',)
+                WHERE email = ? COLLATE NOCASE''',
+                (search_term,)
             )
             results = cursor.fetchall()
             
@@ -104,7 +105,7 @@ def search_in_sqlite(db_path, search_term):
                 cursor.execute(f"PRAGMA table_info({table_name})")
                 column_names = [col[1] for col in cursor.fetchall()]
                 
-                for row in results[:3]:
+                for row in results:
                     raw_data = dict(zip(column_names, row))
                     formatted_data = format_user_data(raw_data)
                     
@@ -135,6 +136,9 @@ def main():
     file_path = r"D:\AVIDA\CODE\Tel_To_Pannel\db_files\x-ui.db"
     search_term = input("\033[93mلطفاً نام کاربری را وارد کنید: \033[0m").strip()
     found = search_in_sqlite(file_path, search_term)
+    
+    if not found:
+        print(f"\n\033[91mنام کاربری '{search_term}' وجود ندارد یا اشتباه است.\033[0m")
 
 if __name__ == "__main__":
     main()
